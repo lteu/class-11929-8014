@@ -75,12 +75,15 @@ class LinkedList{
 
         if (this.head == null) {
             this.head = nd;
+            this.tail = nd;
         }else{
-            Node last = this.head;
-            while(last.next != null){
-                last = last.next;
-            }
-            last.next = nd;
+            this.tail.next = nd;
+            this.tail = nd;
+            // Node last = this.head;
+            // while(last.next != null){
+            //     last = last.next;
+            // }
+            // last.next = nd;
         }
     }
 

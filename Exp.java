@@ -60,10 +60,14 @@ public class Exp {
         System.out.printf("\nLinkedList exp\n"); 
         LinkedList list = new LinkedList();
         list.insert(4);
-        list.insert(8);
+        list.insert(5);
         list.insert(6);
+        list.insert(7);
+        list.insert(8);
         list.display();
         System.out.printf("\n removing index %d \n ", 1); 
+        list.remove(1);
+        System.out.printf("\n removing index %d again\n ", 1); 
         list.remove(1);
         list.display();
         // System.out.printf("\n lookup %d <-- ", list.lookup(1)); 
