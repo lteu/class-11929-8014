@@ -1,6 +1,7 @@
-class LinkedList extends SimpleDataStructure{ 
+class LinkedList{ 
 
     Node head;
+    Node tail;
 
     class Node{
         int data;
@@ -13,13 +14,14 @@ class LinkedList extends SimpleDataStructure{
     }
 
     LinkedList() 
-    { 
-      
+    {   
+
     } 
   
     LinkedList(int val) 
     { 
         this.head = new Node(val);
+        this.tail = this.head;
     } 
 
 
@@ -46,6 +48,28 @@ class LinkedList extends SimpleDataStructure{
             return false;
     }
 
+    public void remove(int index){
+        if(this.head == null)
+            System.out.printf("\nLinkedList is Empty\n"); 
+        else{
+            if (index == 0) {
+                this.head = this.head.next;
+                return;
+            }
+
+            Node tmpnode = this.head;
+            int counter = 0;
+            while (counter < index) { 
+                if (index == counter+1) {
+                    tmpnode.next = tmpnode.next.next;
+                    return;
+                }
+                tmpnode = tmpnode.next;
+                counter++;
+            }
+        }
+    }
+
     public void insert( int data){
         Node nd = new Node(data);
 
@@ -68,9 +92,9 @@ class LinkedList extends SimpleDataStructure{
         } 
 
         Node next = this.head.next;
-        System.out.printf(" %d <-- ", this.head.data); 
+        System.out.printf(" %d --> ", this.head.data); 
         while (next != null) { 
-            System.out.printf(" %d <-- ", next.data); 
+            System.out.printf(" %d --> ", next.data); 
             next = next.next;
         } 
         return; 

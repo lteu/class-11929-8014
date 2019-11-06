@@ -1,42 +1,56 @@
-import java.util.ArrayList; 
 
 // Java program to implement a queue using an ArrayList 
-class Queue extends SimpleDataStructure{ 
+class Queue extends AbstractQueue{ 
   
-    Queue() 
+    Queue(int dim) 
     { 
-        this.datalist = new ArrayList<Integer>();
+        this.datalist = new int[dim];
+        this.capacity = dim;
+        this.head = 0 ;this.tail = 0 ;
     } 
 
     Integer lookup(int index){
-        return this.datalist.get(index);
+        return this.datalist[index];
     }
+    
     public boolean isEmpty(){
-        return this.datalist.isEmpty();
+        return this.datalist.length == 0;
     }
     
     public void enqueue(int data) 
     { 
-        this.datalist.add(data);
+        if (this.tail == this.capacity){
+             System.out.printf("\nThe Queue is FULL.\n"); 
+        }else{
+            this.datalist[this.tail] = data;
+            this.tail++;
+        }
     } 
     
     public Integer dequeue() 
     { 
-        if (this.datalist.size() == 0) {
+        if (this.tail == 0) {
+            System.out.printf("\nThe Queue is Empty.\n"); 
             return null;
         }
         else{
-            int item = this.datalist.get(0);
-            this.datalist.remove(0);
+            int item = this.datalist[0];
+
+            // shift
+            for (int i = 0; i < this.tail - 1; i++) { 
+                this.datalist[i] = this.datalist[i + 1]; 
+            } 
+            this.tail--;
+            this.datalist[this.tail] = 0;
+
             return item;
         }
 
     }
 
-    public int top() 
+    public Integer top() 
     { 
-        int item = this.datalist.get(0);
-        return item;
+        return this.datalist[0];
     }
 
 
@@ -47,8 +61,8 @@ class Queue extends SimpleDataStructure{
             return; 
         } 
 
-        for (int i = 0; i < this.datalist.size(); i++) { 
-            System.out.printf(" %d <-- ", this.datalist.get(i)); 
+        for (int i = 0; i < this.datalist.length; i++) { 
+            System.out.printf(" %d <-- ", this.datalist[i]); 
         } 
         return; 
     } 

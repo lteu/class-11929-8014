@@ -1,41 +1,39 @@
-class CircularQueue extends SimpleDataStructure{ 
+class CircularQueue extends AbstractQueue{ 
 
-    int[] queue;
-    int size,front,rear;
-    int capacity;
+    int size;
   
     CircularQueue(int capacity) 
     { 
-        this.queue = new int[capacity];
+        this.datalist = new int[capacity];
         this.capacity = capacity;
-        this.size = 0 ;this.front = 0 ;this.rear = 0 ;
+        this.size = 0 ;this.head = 0 ;this.tail = 0 ;
     } 
 
     Integer lookup(int index){
-        return this.queue[index % this.capacity];
+        return this.datalist[index % this.capacity];
     }
 
     public boolean isEmpty(){
-        return this.queue == null || this.queue.length == 0;
+        return this.datalist == null || this.datalist.length == 0;
     }
 
     public boolean isFull(){
         return this.size == this.capacity;
     }
-    public int top() 
+    public Integer top() 
     { 
-        return this.queue[this.front];
+        return this.datalist[this.head];
     } 
 
     public void enqueue(int data) 
     {
         if (this.size == this.capacity) {
-             System.out.printf("\nThe CircularQueue is FULL.\n"); 
+             System.out.printf("\nThe Circulardatalist is FULL.\n"); 
              System.out.printf(" size %d capacity %d ", this.size,this.capacity); 
         }else{
             this.size++;
-            this.queue[this.rear] = data;
-            rear = (rear+1) % this.capacity;
+            this.datalist[this.tail] = data;
+            tail = (tail+1) % this.capacity;
         } 
 
     } 
@@ -43,10 +41,10 @@ class CircularQueue extends SimpleDataStructure{
     public Integer dequeue() 
     { 
         if (this.size == 0) {
-             System.out.printf("\nThe CircularQueue is EMPTY.\n"); 
+             System.out.printf("\nThe Circulardatalist is EMPTY.\n"); 
         }else{
-            int data = this.queue[(this.front)];
-            this.front = (this.front + 1) % this.capacity;
+            int data = this.datalist[(this.head)];
+            this.head = (this.head + 1) % this.capacity;
             this.size--;
             return data;
         } 
@@ -57,14 +55,14 @@ class CircularQueue extends SimpleDataStructure{
     public void display() 
     {   
 
-        System.out.printf("\nCircularQueue, front:%d rear:%d\n",this.front,this.size); 
+        System.out.printf("\nCirculardatalist, head:%d tail:%d\n",this.head,this.size); 
         if (isEmpty()) { 
-            System.out.printf("\nQueue is Empty\n"); 
+            System.out.printf("\ndatalist is Empty\n"); 
             return; 
         } 
 
         for (int i = 0; i < this.size; i++) { 
-            System.out.printf(" %d --> ", this.lookup(this.front+i)); 
+            System.out.printf(" %d --> ", this.lookup(this.head+i)); 
         } 
         return; 
     } 

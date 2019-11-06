@@ -1,6 +1,7 @@
 import java.util.ArrayList; 
 
-class Stack extends SimpleDataStructure{ 
+class Stack{
+    ArrayList<Integer> datalist; 
   
     Stack() 
     { 

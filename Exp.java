@@ -27,7 +27,7 @@ public class Exp {
   
         long startTime = System.currentTimeMillis();
     
-        // Queue q = new Queue(); 
+        // Queue q = new Queue(10); 
   
         // // print Queue elements 
         // q.display(); 
@@ -63,25 +63,28 @@ public class Exp {
         list.insert(8);
         list.insert(6);
         list.display();
-        System.out.printf("\n lookup %d <-- ", list.lookup(2)); 
+        System.out.printf("\n removing index %d \n ", 1); 
+        list.remove(1);
+        list.display();
+        // System.out.printf("\n lookup %d <-- ", list.lookup(1)); 
 
-        System.out.printf("\nCircularQueue exp\n"); 
-        CircularQueue cq = new CircularQueue(5);
-        cq.enqueue(20); 
-        cq.enqueue(30); 
-        cq.enqueue(40); 
-        cq.enqueue(50);
-        cq.enqueue(60); 
-        cq.display(); 
-        cq.dequeue(); 
-        cq.enqueue(70); 
-        cq.dequeue(); 
-        cq.dequeue(); 
-        cq.dequeue(); 
-        cq.enqueue(80);
-        cq.enqueue(90);
-        System.out.printf("\nAfter operations \n"); 
-        cq.display(); 
+        // System.out.printf("\nCircularQueue exp\n"); 
+        // CircularQueue cq = new CircularQueue(5);
+        // cq.enqueue(20); 
+        // cq.enqueue(30); 
+        // cq.enqueue(40); 
+        // cq.enqueue(50);
+        // cq.enqueue(60); 
+        // cq.display(); 
+        // cq.dequeue(); 
+        // cq.enqueue(70); 
+        // cq.dequeue(); 
+        // cq.dequeue(); 
+        // cq.dequeue(); 
+        // cq.enqueue(80);
+        // cq.enqueue(90);
+        // System.out.printf("\nAfter operations \n"); 
+        // cq.display(); 
 
         long endTime = System.currentTimeMillis();
         long duration = (endTime - startTime);  
