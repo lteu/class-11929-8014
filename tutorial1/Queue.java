@@ -1,5 +1,6 @@
 
-// Java program to implement a queue using an ArrayList 
+// Java program to implement a queue
+ 
 class Queue extends AbstractQueue{ 
   
     Queue(int dim) 
