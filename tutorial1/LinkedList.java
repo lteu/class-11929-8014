@@ -25,14 +25,29 @@ class LinkedList{
     } 
 
 
-    Integer lookup(int index){
-        if (index == 0) {
+    // Integer lookup(int index){
+    //     if (index == 0) {
+    //         return this.head.data;
+    //     }
+    //     Node next = this.head.next;
+    //     int counter = 0;
+    //     while (counter < index) { 
+    //         if (index == counter+1) {
+    //             return next.data;
+    //         }
+    //         next = next.next;
+    //         counter++;
+    //     }
+    //     return null; 
+    // }
+    Integer lookup(int numb){
+        if (numb == this.head.data) {
             return this.head.data;
         }
         Node next = this.head.next;
         int counter = 0;
-        while (counter < index) { 
-            if (index == counter+1) {
+        while (next != null) { 
+            if (numb == next.data) {
                 return next.data;
             }
             next = next.next;

@@ -51,7 +51,7 @@ class Stack{
         } 
 
         for (int i = 0; i < this.datalist.size(); i++) { 
-            System.out.printf(" %d <-- ", this.datalist.get(i)); 
+            System.out.printf(" %d --> ", this.datalist.get(i)); 
         } 
         return; 
     } 

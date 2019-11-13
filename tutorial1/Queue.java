@@ -63,7 +63,7 @@ class Queue extends AbstractQueue{
         } 
 
         for (int i = 0; i < this.datalist.length; i++) { 
-            System.out.printf(" %d <-- ", this.datalist[i]); 
+            System.out.printf(" %d --> ", this.datalist[i]); 
         } 
         return; 
     } 
