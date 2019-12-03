@@ -37,12 +37,8 @@ class HashTableOA implements HashTableInterface{
       }
 
       public void insert(int key, int value) {
-            int hash = (key % table.length);
-            int initialHash = -1;
-            int indexOfDeletedEntry = -1;
-
             int index = scan(key, false);
-            hash = index;
+            int hash = index;
             table[hash] = new HashEntry(key, value);
             size++;
 
