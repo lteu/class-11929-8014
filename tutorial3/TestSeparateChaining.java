@@ -1,5 +1,5 @@
 // demo, hash table with collision list
-
+import java.util.Random;
   
    class HashEntrySC extends HashEntry{
       // personalised vector class
@@ -21,21 +21,6 @@
 
       public HashTableSC(int initialSize) {
          table = new HashEntrySC[initialSize];
-      }
-
-      void dump() {
-         System.out.println();
-         for (int i = 0; i < table.length; i++) {
-              // Print out the location number and the list of
-              // key/value pairs in this location.
-            System.out.print(i + ":");
-            HashEntrySC entry = table[i]; // For traversing linked list number i.
-            while (entry != null) {
-               System.out.print("  (" + entry.key + "," + entry.value + ")");
-               entry = entry.next;
-            }
-            System.out.println();
-         }
       }
 
       public void insert(int key, int value) {
@@ -123,32 +108,56 @@
          table = newtable;  // Replace the table with the new table.
       } // end resize()
 
-   } // end class HashTableSC
+
+      void dump() {
+         System.out.println();
+         for (int i = 0; i < table.length; i++) {
+              // Print out the location number and the list of
+              // key/value pairs in this location.
+            System.out.print(i + ":");
+            HashEntrySC entry = table[i]; // For traversing linked list number i.
+            while (entry != null) {
+               System.out.print("  (" + entry.key + "," + entry.value + ")");
+               entry = entry.next;
+            }
+            System.out.println();
+         }
+      }
+
+   } // end class
 
 
    public class TestSeparateChaining {
 
       public static void main(String[] args){
+        Random rd = new Random(553662);
         HashTableSC table = new HashTableSC(2);
-        String key,value;
-        System.out.println("   1. test insert(key,value)");
-        table.insert(14,15);
-        table.insert(16,17);
-        table.insert(18,19);
-        table.insert(20,19);
-        table.insert(21,19);
-        table.insert(22,19);
-        table.insert(23,19);
-        System.out.println("   2. test lookup(key)");
-        System.out.println("   Value is of 18 is " + table.lookup(18));
+        
+        // System.out.println("   1. test insert(key,value)");
+        // table.insert(14,15);
+        // table.insert(16,17);
+        // table.insert(18,19);
+        // table.insert(20,19);
+        // table.insert(21,19);
+        // table.insert(22,19);
+        // table.insert(23,19);
+        // System.out.println("   2. test lookup(key)");
+        // System.out.println("   Value is of 18 is " + table.lookup(18));
 
-        System.out.println("   3. test lookup(key)");
-        System.out.println("   lookup(" + "14" + ") is "  + table.lookup(14));
+        // System.out.println("   3. test lookup(key)");
+        // System.out.println("   lookup(" + "14" + ") is "  + table.lookup(14));
 
-        System.out.println("   4. test remove(14)");
-        table.remove(14);
+        // System.out.println("   4. test remove(14)");
+        // table.remove(14);
 
-        System.out.println("   5. show complete contents of hash table.");
+        // System.out.println("   5. show complete contents of hash table.");
+        // table.dump();
+
+        for (int i = 0; i < 50; i++) {
+          int key = rd.nextInt(100);
+          int val = rd.nextInt(200);
+          table.insert(key,val);
+        }
         table.dump();
 
       }
