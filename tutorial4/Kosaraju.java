@@ -15,7 +15,6 @@ public class Kosaraju {
 
     private HashMap<Integer, Boolean> visited = new HashMap<>(); 
     private HashMap<Integer, Integer> assigned = new HashMap<>(); 
-    private int count=-1;
     private Stack<Integer> L = new Stack<Integer>();
 
     public Kosaraju(Digraph G){
