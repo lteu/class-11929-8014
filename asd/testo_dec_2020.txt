@@ -1,0 +1,92 @@
+================================
+Quante 30 e lode ?!
+
+Data una stringa, si vogliono capire quante
+combinazioni di "30 e lode" ci sono.
+Una "30 e lode" viene contata 
+se i component "30", "e" e "lode"
+compaiono in ordine nella stringa, 
+e in mezzo di questi componenti
+possono esserci zero o più caratteri di qualsiasi tipo (solo ascii).
+
+Quindi per esempio:
+
+30lodelode la risposta è 1 perché la combinazione è [30]lod[e][lode]
+30eelode la risposta è 2 perché con due 'e' in mezzo, ci potete trovare due 30 e lode.
+30MMeXXX30ZZelodeYYYlode la risposta è 6.
+
+
+Input:
+numero di casi
+caso1
+caso2
+caso3
+...
+
+Output:
+Caso1:X
+Caso2:Y
+Caso3:Z
+....
+
+si assume che tutti i caratteri di input sono minuscoli.
+si invita di progettare un algoritmo efficiente per risolvere questo problema.
+
+================================
+Dato un albero binario di ricerca,
+si progetta un algoritmo che opera sull'albero per trovare il 
+nodo successivo (successore in ordine) di un dato nodo.
+
+Per esempio, dato il seguente albero, e il nodo 7.
+Il successore del nodo 7 è 9 e quindi il programma ritorna 9.
+     9
+   /   \
+  6    10
+ / \   
+4   7
+
+
+
+
+================================
+
+Si progetta un algoritmo per risolvere il seguente problema:
+Dato un intero X e un albero binario nel quale ogni nodo contiene un intero. 
+Si calcola il numero di percorsi in questo albero che la somma dei valori dei nodi attraversati fa esattamente X.
+
+per esempio, dato X = 11 ed il seguente albero
+
+     1
+   /   \
+  9    -2
+ / \   / \
+10  2 13  12
+      /\ 
+     1  5
+
+la risposta deve essere 3.
+Perché esistono tre percorsi, 
+- 9, 2 
+- -2 13
+- 1 -2 12
+
+
+
+formato dell'input:
+
+la prima riga contiene gli archi dell'albero. e.g.
+1,9;1,-2;9,10;9,2;-2,13;-2,12;13,1;13,5 
+
+la seconda riga contiene i query
+11,15,0,1
+
+formato dell'output corrisponde alle domande di query:
+3
+1
+0
+2
+
+
+
+
+
